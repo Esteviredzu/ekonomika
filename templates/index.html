@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Наша Компания</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header class="main-header">
+        <a href="#" id="home-link" data-url="/main" class="logo">Главная</a>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#" data-url="/assortment">Ассортимент</a></li>
+                <li><a href="#" data-url="/reviews">Отзывы</a></li>
+                <li><a href="#" data-url="/contacts">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main id="content-area">
+        <section class="hero">
+
+
+            <div class="hero-content">
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                <div class="alert">
+                    {{ messages[0] }}
+                </div>
+                {% endif %}
+                {% endwith %}
+                <h1>Добро пожаловать в подпольное казино!</h1>
+                <p>Создаём сайты, которые вдохновляют и приносят успех.</p>
+                <a href="#more-info" class="btn">Узнать больше</a>
+            </div>
+        </section>
+        <section id="more-info" class="info-section">
+            <h2>О нас</h2>
+            <div class="info-text">
+                <div class="info-column">
+                    <h3>Наша команда</h3>
+                    <p>Мы — команда молодых и амбициозных специалистов, работающих в сфере разработки и цифрового маркетинга. Наша цель — помочь вашему бизнесу достичь новых высот. Мы разрабатываем индивидуальные решения, которые помогают клиентам выделяться на фоне конкурентов.</p>
+                </div>
+                <div class="info-column">
+                    <h3>Наши услуги</h3>
+                    <p>Наша компания специализируется на разработке веб-сайтов. Мы обладаем широким набором современных технологий, которые позволяют создавать сайты различной сложности, удовлетворяя самые разнообразные потребности. Нужен простой сайт-портфолио или сложный интерфейс для веб-приложения? Мы готовы помочь!</p>
+                </div>
+                <div class="info-column">
+                    <h3>Гибкость и конфиденциальность</h3>
+                    <p>Мы ценим вашу приватность и стремимся предоставить максимально удобные и безопасные способы оплаты. Для вашего удобства мы предлагаем разнообразные варианты оплаты, включая современные платёжные системы, а также криптовалюту.</p>
+                </div>
+            </div>
+        
+            <div class="logos-container">
+                <h3>Способы оплаты</h3>
+                <div class="logos">
+                    <img src="{{ url_for('static', filename='images/logo1.webp') }}" alt="СБП">
+                    <img src="{{ url_for('static', filename='images/logo2.jpg') }}" alt="Crypto">
+                    <img src="{{ url_for('static', filename='images/logo3.png') }}" alt="Card">
+                </div>
+            </div>
+        </section>
+        
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Подпольное казино. Все права защищены.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
+
+
+<style>
+    .hero {
+      position: relative; 
+      background-image: url("{{ url_for('static', filename='images/background.jpg') }}");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    }
+
+
+    .logos img {
+    max-width: 50px; /* Максимальная ширина иконок */
+    max-height: 50px; /* Максимальная высота иконок */
+    object-fit: contain; /* Сохраняем пропорции иконок */
+    transition: transform 0.3s ease; /* Плавная анимация при наведении */
+    margin: 10px; /* Добавляем небольшой отступ между иконками */
+}
+
+.logos img:hover {
+    transform: scale(1.1); /* Увеличение размера иконок при наведении */
+}
+
+
+
+
+
+
+    @media (max-width: 768px) {
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    .main-header {
+        width: 100%; /* Ограничиваем ширину */
+        padding: 0px; /* Уменьшаем отступы */
+        box-sizing: border-box; /* Учитываем отступы в ширине */
+        display: flex;
+        flex-direction: column; /* Располагаем элементы вертикально */
+        align-items: left; /* Центрируем по горизонтали */
+    }
+
+    .main-header .nav-links {
+        display: flex;
+        flex-direction: column; /* Располагаем ссылки вертикально */
+        align-items: center; /* Центрируем по горизонтали */
+        gap: 10px; /* Добавляем расстояние между ссылками */
+        padding: 0;
+        margin: 0;
+    }
+
+    .main-header .nav-links li {
+        list-style: none; /* Убираем маркеры списка */
+        width: 100%; /* Каждая ссылка занимает всю ширину */
+    }
+
+    .main-header .nav-links a {
+        font-size: 1.2em; /* Немного увеличиваем текст ссылок */
+        display: block; /* Каждая ссылка как отдельный блок */
+        width: 100%; /* Ссылка растягивается на всю ширину */
+        text-align: center; /* Текст в центре */
+    }
+}
+  </style>
+  

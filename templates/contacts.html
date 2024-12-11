@@ -1,0 +1,29 @@
+<div class="contact-container">
+    <div class="contact-card">
+        <h2 class="contact-title">Контакты</h2>
+        <p class="contact-description">Свяжитесь с нами и начните работать над своим проектом уже сегодня!</p>
+        <div class="contact-info">
+            <p><strong>Email:</strong> <a href="mailto:superninjacherepashki@pizza.com" class="contact-link">superninjacherepashki@pizza.com</a></p>
+            <p><strong>Телефон:</strong> <a href="tel: 8800-555-356-35" class="contact-link">8800-555-356-35</a></p>
+        </div>
+    </div>
+</div>
+<style>
+.contact-container {
+    position: relative;
+    max-width: 100%;
+    height: 100vh; /* Высота экрана */
+    
+    background-image: url("{{ url_for('static', filename='images/background.jpg') }}");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 0.0s ease-out forwards; /* Ускоренная анимация появления */
+}
+</style>

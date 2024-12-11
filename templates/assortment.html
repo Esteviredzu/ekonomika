@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ассортимент товаров</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="products-container">
+        <div class="products">
+            {% for product in products %}
+                <div class="product-card" style="animation-delay: {{ loop.index * 0.1 }}s;">
+                    <h4>{{ product.name }}</h4>
+                    <p>{{ product.description }}</p>
+                    <span>{{ product.price }} ₽</span>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+
+    .products-container {
+        position: relative;
+        max-width: 100%;
+        height: 100vh;
+        background-image: url("{{ url_for('static', filename='images/background.jpg') }}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        opacity: 0;
+        transform: translateY(50px);
+        animation: fadeInUp 0.0s ease-out forwards; /* Плавная анимация для всего контейнера */
+    }
+
+    .products {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        max-height: 70vh;
+        overflow-y: auto;
+        width: 75%;
+    }
+
+    .product-card {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        transition: transform 0.2s ease;
+        opacity: 0; /* Начальная прозрачность карточки */
+        transform: translateY(50px); /* Начальная позиция карточки */
+        animation: fadeInCard 0.6s ease-out forwards; /* Анимация для карточки */
+    }
+
+    .product-card h4 {
+        font-size: 1.2em;
+        color: #333;
+    }
+
+    .product-card p {
+        color: #777;
+        font-size: 1em;
+    }
+
+    .product-card span {
+        font-size: 1.2em;
+        color: #2c3e50;
+        font-weight: bold;
+    }
+
+    .product-card:hover {
+        transform: translateY(-5px);
+    }
+
+    /* Анимация для всего контейнера */
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Анимация для карточки товара */
+    @keyframes fadeInCard {
+        0% {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+</style>
+
+</html>

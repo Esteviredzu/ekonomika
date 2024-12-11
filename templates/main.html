@@ -1,0 +1,71 @@
+<section class="hero">
+    <div class="hero-content">
+        <h1>Добро пожаловать в подпольное казино!</h1>
+        <p>Создаём сайты, которые вдохновляют и приносят успех.</p>
+        <a href="#more-info" class="btn">Узнать больше</a>
+    </div>
+</section>
+<section id="more-info" class="info-section">
+    <h2>О нас</h2>
+    <div class="info-text">
+        <div class="info-column">
+            <h3>Наша команда</h3>
+            <p>Мы — команда молодых и амбициозных специалистов, работающих в сфере разработки и цифрового маркетинга. Наша цель — помочь вашему бизнесу достичь новых высот. Мы разрабатываем индивидуальные решения, которые помогают клиентам выделяться на фоне конкурентов.</p>
+        </div>
+        <div class="info-column">
+            <h3>Наши услуги</h3>
+            <p>Наша компания специализируется на разработке веб-сайтов. Мы обладаем широким набором современных технологий, которые позволяют создавать сайты различной сложности, удовлетворяя самые разнообразные потребности. Нужен простой сайт-портфолио или сложный интерфейс для веб-приложения? Мы готовы помочь!</p>
+
+
+        </div>
+        <div class="info-column">
+            <h3>Гибкость и конфиденциальность</h3>
+            <p>Мы ценим вашу приватность и стремимся предоставить максимально удобные и безопасные способы оплаты. Для вашего удобства мы предлагаем разнообразные варианты оплаты, включая современные платёжные системы, а также криптовалюту.</p>
+        </div>
+        
+    </div>
+
+    <div class="logos-container">
+        <h3>Способы оплаты</h3>
+        <div class="logos">
+            <img src="{{ url_for('static', filename='images/logo1.webp') }}" alt="СБП">
+            <img src="{{ url_for('static', filename='images/logo2.jpg') }}" alt="Crypto">
+            <img src="{{ url_for('static', filename='images/logo3.png') }}" alt="Card">
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<style>
+    .hero {
+      position: relative; 
+      background-image: url("{{ url_for('static', filename='images/background.jpg') }}");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    }
+
+
+
+    .logos img {
+    max-width: 50px; /* Максимальная ширина иконок */
+    max-height: 50px; /* Максимальная высота иконок */
+    object-fit: contain; /* Сохраняем пропорции иконок */
+    transition: transform 0.3s ease; /* Плавная анимация при наведении */
+    margin: 10px; /* Добавляем небольшой отступ между иконками */
+}
+
+.logos img:hover {
+    transform: scale(1.1); /* Увеличение размера иконок при наведении */
+}
+
+  </style>
