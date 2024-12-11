@@ -18,7 +18,7 @@
                 </div>
             {% endfor %}
         </div>
-        
+    </div>
         <!-- Форма для отправки отзыва с методом POST -->
         <form action="/add_review" method="POST" class="review-form">
             <div class="review-title-box">
@@ -28,7 +28,7 @@
             <textarea id="review" name="review" placeholder="Ваш отзыв" required></textarea>
             <button type="submit">Отправить</button>
         </form>
-    </div>
+    
 
 </body>
 <style>
@@ -53,7 +53,7 @@
         color: white;
         opacity: 0;
         transform: translateY(50px);
-        animation: fadeInUp 0.0s ease-out forwards; /* Ускоренная анимация появления */
+        animation: fadeInUp 0.0s ease-out forwards; /* Плавная анимация для всего контейнера */
     }
 
     .reviews {
