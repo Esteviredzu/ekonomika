@@ -163,5 +163,30 @@
     form button:hover {
         background-color: #34495e;
     }
+
+
+
+
+
+
+
+
+    @media (max-width: 768px) {
+        .reviews-container {
+            flex-direction: column; /* Строки идут вниз */
+            padding: 10px;
+        }
+
+        .reviews {
+            width: 100%;
+            max-height: 50vh;
+        }
+
+        .review-form {
+            width: 100%; /* Форма на мобильных экранах занимает всю ширину */
+            max-width: none; /* Убираем ограничение по ширине для мобильных */
+            margin-bottom: 20px; /* Добавляем отступ снизу */
+        }
+    }
 </style>
 </html>
